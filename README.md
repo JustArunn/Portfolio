@@ -1,9 +1,6 @@
 # Personal Portfolio website
 
-This is Personal Portfolio website made with bellow Technologies
-
-=======
-This is Personal Portfolio website made with following Technologies
+This is Personal Portfolio website made with bellow Technologies:
 
 - HTML
 - CSS
