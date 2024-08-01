@@ -282,32 +282,55 @@
           </div>
           <div class="column right">
             <div class="text">Message me</div>
-            <form class="contact-form" action="">
+            
+            <!-- <form class="contact-form" >
               <div class="fields">
                 <div class="field name">
-                  <input type="text" class="fullname" placeholder="Name" />
+                  <input type="text" class="fullname" name="fullName" placeholder="Name" />
                 </div>
                 <div class="field email">
-                  <input type="text" class="email-input" placeholder="Email" />
+                  <input type="text" class="email-input" name="email" placeholder="Email" />
                 </div>
               </div>
               <div class="field">
-                <input type="text" class="subject" placeholder="Subject" />
+                <input type="text" class="subject" name="subject" placeholder="Subject" />
               </div>
               <div class="field textarea">
                 <textarea
                   class="message"
+                  name="message"
                   cols="30"
                   rows="10"
                   placeholder="Message.."
                 ></textarea>
               </div>
               <div class="button-area">
-                <button class="send-msg" type="submit" name="send">
+                <button class="send-msg" type="submit">
                   Send message
                 </button>
               </div>
-            </form>
+            </form> -->
+
+            <form class="contact-form" id="contact-form">
+            <div class="fields">
+              <div class="field name">
+                <input type="text" class="fullname" name="fullName" placeholder="Name" required />
+              </div>
+              <div class="field email">
+                <input type="email" class="email-input" name="email" placeholder="Email" required />
+              </div>
+            </div>
+            <div class="field">
+              <input type="text" class="subject" name="subject" placeholder="Subject" required />
+            </div>
+            <div class="field textarea">
+              <textarea class="message" name="message" cols="30" rows="10" placeholder="Message.." required></textarea>
+            </div>
+            <div class="button-area">
+              <button class="send-msg" type="submit">Send message</button>
+            </div>
+          </form>
+
           </div>
         </div>
       </div>
@@ -330,6 +353,87 @@
         <span class="far fa-copyright"></span> 2021 All rights reserved.</span
       >
     </footer>
+   
     <script src="portfolio.js"></script>
+     <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <!-- <script type="module" 
+    src="https://cdn.jsdelivr.net/npm/sweetalert2@11"
+    ></script>
+  <script type="text/javascript">
+    emailjs.init("mABVi5kJ1M5vthMVH"); 
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            emailjs.sendForm("service_5k4n6qr", "template_d2pm9bu", this)  
+            .then( 
+                () => {
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Sent Successfully',
+                    text: 'Your message has been sent!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(()=>{
+                    this.reset();
+                  })
+                },
+                (error) => {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Failed',
+                    text: 'There was an error sending your message.',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+              );
+          });
+      };
+    </script>
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+  // Initialize EmailJS with your user ID
+  emailjs.init("mABVi5kJ1M5vthMVH");
+
+  window.onload = function () {
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      emailjs.sendForm("service_5k4n6qr", "template_d2pm9bu", this)
+        .then(() => {
+          // Show success alert
+          Swal.fire({
+            icon: 'success',
+            title: 'Sent Successfully',
+            text: 'Your message has been sent!',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            this.reset(); // Reset the form
+          });
+        }, (error) => {
+          // Show error alert
+          Swal.fire({
+            icon: 'error',
+            title: 'Failed',
+            text: 'There was an error sending your message.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        });
+    });
+  };
+</script>
+ 
   </body>
 </html>
